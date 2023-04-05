@@ -37,6 +37,7 @@ public:
 	bool pripadaTabli(int i, int j);
 	Polje* getPolje(int i, int j) { return t[i][j]; }
 	Polje* scanForP(Polje* prvo);
+	void findStart();
 
 	void start(int k);
 

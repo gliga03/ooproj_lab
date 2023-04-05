@@ -72,16 +72,19 @@ void Igrac::move(int p) {
 
 void Igrac::moveOnce() {
 
+	// prvo skretanje
 	if (i == 0 && j == 12 && turnRight) {
 		i = i + 1;
 		return;
 	}
 
+	// drugo skretanje
 	if (i == 19 && j == 7 && turnRight) {
 		i = i - 1;
 		return;
 	}
 
+	// gornja ivica
 	if (i == 0) {
 		if (tabla->pripadaTabli(i, j + 1))
 			j = j + 1;
@@ -90,6 +93,7 @@ void Igrac::moveOnce() {
 		return;
 	}
 
+	// donja ivica
 	if (i == 19) {
 		if (tabla->pripadaTabli(i, j - 1))
 			j = j - 1;
@@ -98,6 +102,7 @@ void Igrac::moveOnce() {
 		return;
 	}
 
+	// leva ivica
 	if (j == 0) {
 		if (tabla->pripadaTabli(i - 1, j))
 			i = i - 1;
@@ -106,6 +111,7 @@ void Igrac::moveOnce() {
 		return;
 	}
 
+	// desna ivica
 	if (j == 19) {
 		if (tabla->pripadaTabli(i + 1, j))
 			i = i + 1;
@@ -114,6 +120,7 @@ void Igrac::moveOnce() {
 		return;
 	}
 
+	// skretanje nadole
 	if (j == 12) {
 		if (tabla->pripadaTabli(i + 1, j))
 			i = i + 1;
@@ -122,6 +129,7 @@ void Igrac::moveOnce() {
 		return;
 	}
 
+	// skretanje udesno
 	if (i == 7) {
 		if (tabla->pripadaTabli(i, j + 1))
 			j = j + 1;
@@ -130,6 +138,7 @@ void Igrac::moveOnce() {
 		return;
 	}
 
+	// skretanje nagore
 	if (j == 7) {
 		if (tabla->pripadaTabli(i - 1, j))
 			i = i - 1;
@@ -138,6 +147,7 @@ void Igrac::moveOnce() {
 		return;
 	}
 
+	// skretanje ulevo
 	if (i == 11) {
 		if (tabla->pripadaTabli(i, j - 1))
 			j = j - 1;

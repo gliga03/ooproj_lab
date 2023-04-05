@@ -118,19 +118,26 @@ void Tabla::start(int k) {
 
 	srand(time(0));
 	int i = 0;
+	findStart();
 	while (i < k) {
 		print();
-		char c;
+		int c;
+		int kockica = 0;;
 		cout << "Pritisnite taster 0 da biste bacili kockicu: ";
 		cin >> c;
-		if (c == '0') {
-			int kockica = rand() % 6 + 1;
-			cout << "Kockica: " << kockica << endl;
-			igrac->move(kockica);
-			i = igrac->getBrKrugova();
+		if (c == 0) {
+			kockica = rand() % 6 + 1;
 		}
+		else if (c>=1 && c<=6) {
+			kockica = c;
+		}
+		cout << "Kockica: " << kockica << endl;
+		igrac->move(kockica);
+		i = igrac->getBrKrugova();
 	}
 	print();
+
+	cout << "Igrac je presao " << k << " krugova!" << endl;
 
 
 }
@@ -148,4 +155,26 @@ Polje* Tabla::scanForP(Polje* prvo) {
 
 	return temp;
 	
+}
+
+void Tabla::findStart() {
+
+	Polje* temp = nullptr;
+	bool nadjen = false;
+
+	for (int i = 0; i < 20; i++) {
+		for (int j = 0; j < 20; j++) {
+			if (getPolje(i, j)->getSimbol() == 'O' && !nadjen) {
+				temp = getPolje(i, j);
+				nadjen = true;
+			}
+		}
+	}
+
+	if (temp != nullptr) {
+		int i = temp->getI();
+		int j = temp->getJ();
+		igrac->setPos(i, j);
+	}
+
 }

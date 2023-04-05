@@ -14,9 +14,7 @@ public:
 	}
 
 	char getSimbol() { return simbol; }
-
 	int getI() { return i; }
 	int getJ() { return j; }
 
 };
-
