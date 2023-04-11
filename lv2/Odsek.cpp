@@ -43,12 +43,6 @@ Odsek::~Odsek() {
 
 	if (studenti) {
 
-		for (int i = 0; i < trenutnaPopunjenost; i++)
-		{
-			delete studenti[i];
-			studenti[i] = nullptr;
-		}
-
 		delete[] studenti;
 		studenti = nullptr;
 

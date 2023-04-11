@@ -48,7 +48,6 @@ Student::~Student() {
 		JMBG = nullptr;
 	}
 
-
 	if (datumRodjenja) {
 		delete[] datumRodjenja;
 		datumRodjenja = nullptr;

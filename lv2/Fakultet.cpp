@@ -77,6 +77,8 @@ void Fakultet::upisiStudenta(Student* s, const char* imeOdseka) {
 	Odsek* odsek = getOdsek(imeOdseka);
 	if (odsek)
 		odsek->dodajStudenta(odsek, s);
+	else
+		cout << "Ne postoji zadati odsek na ovom fakultetu!";
 
 }
 
@@ -84,9 +86,8 @@ void Fakultet::dodajPredmet(const char* odsek, const char* naziv, const char* si
 
 	Odsek* temp = getOdsek(odsek);
 	
-	if (odsek) {
+	if (odsek)
 		temp->dodajPredmet(naziv, sifra, ESPB, semestar, obavezan);
-	}
 	else
 		cout << "Ne postoji zadati odsek na ovom fakultetu!";
 
@@ -114,6 +115,10 @@ Odsek* Fakultet::getOdsek(const char* naziv) {
 
 void Fakultet::printPredmeti() {
 
+	cout << "--------------------------------------------------------------------------------------------------" << endl;
+	cout << naziv << ", " << adresa << ", " << grad << ", " << datumOsnivanja << endl;
+	cout << "--------------------------------------------------------------------------------------------------" << endl;
+
 	for (int i = 0; i < trenutniBrojOdseka; i++) {
 
 		odseci[i]->printPredmeti();
@@ -124,6 +129,10 @@ void Fakultet::printPredmeti() {
 }
 
 void Fakultet::printStudenti() {
+
+	cout << "--------------------------------------------------------------------------------------------------" << endl;
+	cout << naziv << ", " << adresa << ", " << grad << ", " << datumOsnivanja << endl;
+	cout << "--------------------------------------------------------------------------------------------------" << endl;
 
 	for (int i = 0; i < trenutniBrojOdseka; i++) {
 
@@ -136,6 +145,8 @@ void Fakultet::printStudenti() {
 
 void Fakultet::print() {
 
+	cout << "--------------------------------------------------------------------------------------------------" << endl;
+	cout << naziv << ", " << adresa << ", " << grad << ", " << datumOsnivanja << endl;
 	cout << "--------------------------------------------------------------------------------------------------" << endl;
 
 	for (int i = 0; i < trenutniBrojOdseka; i++) {
